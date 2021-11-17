@@ -1,6 +1,5 @@
 import Phaser from 'phaser';
 import MainScene from './MainScene';
-import PhysicsScene from './PhysicsScene';
 
 const game = new Phaser.Game({
   width: 1024,
@@ -9,15 +8,6 @@ const game = new Phaser.Game({
   scale: {
     mode: Phaser.Scale.FIT,
   },
-  // Remove or comment to disable physics
-  physics: {
-    default: 'arcade',
-    arcade: {
-      gravity: {
-        y: 100,
-      }
-    }
-  },
   // Entry point
-  scene: MainScene // or PhysicsScene
+  scene: MainScene
 })
