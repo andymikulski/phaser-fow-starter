@@ -1,5 +1,9 @@
-Phaser + TypeScript starter
+Phaser + TypeScript Starter - Fog of War Edition
 ------------------------------
+
+- https://i.imgur.com/7vl6zI3.mp4
+- https://i.imgur.com/ScTKtpC.mp4 (higher 'Strength' param)
+
 ## Features
 
 - [x] Webpack 4
@@ -14,7 +18,7 @@ Just clone it and get going.
 
 ```
 # --depth 1 removes all but one .git commit history
-$ git clone --depth=1 https://github.com/andymikulski/phaser-starter.git <your-project-name>
+$ git clone --depth=1 https://github.com/andymikulski/phaser-fow-starter.git <your-project-name>
 
 # change directory to your project
 cd  <your-project-name>
