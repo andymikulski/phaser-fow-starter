@@ -129,7 +129,7 @@ void main()
   // (It somewhat helps to shrink the window with the preview canvas, but even that can be tough.)
 
   // Use this line to debug what your displacement texture looks like:
-  gl_FragColor = vec4(v, v, v, 1.0);
+  // gl_FragColor = vec4(v, v, v, 1.0);
 
   // -------------------------------------------
 
