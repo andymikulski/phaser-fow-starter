@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import MainScene from './MainScene';
-import { SurfacePipeline, SurfacePostFX } from './SurfaceShader';
+import { DisplacementPipeline, DisplacementPostFX } from './DisplacementShaders';
 
 const game = new Phaser.Game({
   width: 1024,
@@ -10,8 +10,8 @@ const game = new Phaser.Game({
     mode: Phaser.Scale.FIT,
   },
   pipeline: {
-    'waterSurface': SurfacePipeline,
-    'waterSurfacePostFX': SurfacePostFX,
+    'displacement': DisplacementPipeline,
+    'displacementPostFX': DisplacementPostFX,
   } as any,
   // Entry point
   scene: MainScene

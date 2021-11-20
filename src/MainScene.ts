@@ -18,9 +18,9 @@ export default class MainScene extends Phaser.Scene {
   };
   create = () => {
     // Creates the necessary render texture etc.
-    this.fow = new FogOfWar(this, 1024, 768, 256, 0.0025, 'background-drawn');
+    this.fow = new FogOfWar(this, 1024, 768, 128, 0.0025); // , 'background-drawn');
 
-    this.fow.fogTexture.setPostPipeline('waterSurfacePostFX');
+    this.fow.fogTexture.setPostPipeline('displacementPostFX');
 
     this.add.text(0, 0, "Main Scene - no physics", {
       color: "#fff",
