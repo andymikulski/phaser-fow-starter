@@ -1,7 +1,7 @@
 import Phaser from "phaser";
 import FogOfWar from "./FogOfWar";
 
-const NUM_MARIOS = 10;
+const NUM_MARIOS = 2;
 export default class MainScene extends Phaser.Scene {
   private marios: Phaser.GameObjects.Image[] = [];
 
@@ -18,7 +18,9 @@ export default class MainScene extends Phaser.Scene {
   };
   create = () => {
     // Creates the necessary render texture etc.
-    this.fow = new FogOfWar(this, 1024, 768, 128, 0.0025/*, 'background-drawn'*/);
+    this.fow = new FogOfWar(this, 1024, 768, 256, 0.0025, 'background-drawn');
+
+    this.fow.fogTexture.setPostPipeline('waterSurfacePostFX');
 
     this.add.text(0, 0, "Main Scene - no physics", {
       color: "#fff",
@@ -35,7 +37,7 @@ export default class MainScene extends Phaser.Scene {
     for (let i = 0; i < NUM_MARIOS; i++) {
       mario = this.add
         .image(32, 32, "mario")
-        .setData("velocity", { x: Math.random() * 500, y: Math.random() * 500 })
+        .setData("velocity", { x: Math.random() * 100, y: Math.random() * 100 })
         .setDisplaySize(32, 32);
 
       this.marios.push(mario);
@@ -44,11 +46,14 @@ export default class MainScene extends Phaser.Scene {
 
   update = (time: number, delta: number) => {
     // Expand the fog
-    this.fow.growFog(delta);
+    this.fow.growFog(delta * 0.5);
 
     // do something every tick here
     let mario;
     let velocity;
+
+    this.fow.reveal(this.input.mousePointer.worldX, this.input.mousePointer.worldY);
+
     for (let i = 0; i < this.marios.length; i++) {
       mario = this.marios[i];
       velocity = mario.getData("velocity") as { x: number; y: number };

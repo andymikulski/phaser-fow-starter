@@ -35,7 +35,7 @@ export default class FogOfWar {
 
     this.eraserCursor = scene.add
       .image(0, 0, "fog-dot") // this texture is preloaded in `MainScene`
-      .setDisplaySize(48 * (this.fidelity / 128), 48 * (this.fidelity / 128))
+      .setDisplaySize(32 * (this.fidelity / 128), 32 * (this.fidelity / 128))
       .setOrigin(0.5, 0.5)
       .setVisible(false);
 
